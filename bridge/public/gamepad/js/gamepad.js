@@ -34,7 +34,7 @@ var Gamepad = {
 				}
 
 				Gamepad.controls.push(control);
-				document.getElementById(Gamepad.controlsEl).appendChild(control.build());
+				document.getElementById("controls").appendChild(control.build());
 			})(id, layout);
 		}
 	}
