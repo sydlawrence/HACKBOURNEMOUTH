@@ -18,9 +18,6 @@
         <script src="js/buttons/dpad.js"></script>
         <script src="js/buttons/joystick.js"></script>
 
-
-
-
     </head>
 
     <!--
@@ -35,64 +32,14 @@
 
     	</div>
 
-  
-
-    
-
     	<script>
 
-			var layout = {
-				a: {
-					type: 'button',
-					size: 50,
-					image: 'http://mygame.com/buttons/0.png',
-					x: 10,
-					color: "#fcf",
-					y: 10
-				},
-				b: {
-					type: 'button',
-					size: 50,
-					image: 'http://mygame.com/buttons/0.png',
-					x: 10,
-					color: "#cff",
-					y: 70
-				},
-				x: {
-					type: 'button',
-					size: 50,
-					image: 'http://mygame.com/buttons/0.png',
-					color: "#ffc",
-					x: 10,
-					y: 130
-				},
-				y: {
-					type: 'button',
-					size: 50,
-					color: "#ccf",
-					image: 'http://mygame.com/buttons/0.png',
-					x: 10,
-					y: 190
-				},
-				pad: {
-					type: 'dpad',
-					size: 100,
-					image: 'http://mygame.com/buttons/1.png',
-					x: 100,
-					y: 10
-				},
-				joy: {
-					type: 'joy',
-					size: 50,
-					image: 'http://mygame.com/buttons/1.png',
-					x: 100,
-					y: 150
-				}
-			};
+			socket.on("message", function (data) {
+				if (data.type === "layout")
+					Gamepad.setLayout(data.layout);
+			});
 
-			Gamepad.setLayout(layout);
-    		
-
+    	
 
     	</script>
 

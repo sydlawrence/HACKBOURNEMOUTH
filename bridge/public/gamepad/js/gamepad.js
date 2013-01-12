@@ -5,7 +5,7 @@ var Gamepad = {
 	sendState: function(button, state) {
 		console.log("button change: "+button);
 		console.log(state);
-		socket.emit({
+		socket.emit("message", {
 			type: "controlPress",
 			button:button,
 			state:state
