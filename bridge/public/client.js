@@ -32,12 +32,12 @@ var GamepadJoyJoy = (function() {
         that.trigger('controllerConnected', gamepad);
       }
       if (data.type === "controllerDisconnected") {
-         var gamepad = gamepads[data.id];
-         delete gamepads[data.id];
+         var gamepad = that.gamepads[data.id];
+         delete that.gamepads[data.id];
          that.trigger('controllerDisconnected', gamepad);
       }
       if (data.type === "controlPress") {
-          var gamepad = gamepads[data.id];
+          var gamepad = that.gamepads[data.id];
           gamepad.buttonChange(data.button, data.state);
       }
       
