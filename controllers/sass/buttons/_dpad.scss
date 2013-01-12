@@ -1,0 +1,62 @@
+
+
+.dpad {
+
+	width:100px;
+	height:100px;	
+	position:relative;
+
+	button {
+		display:block;
+
+		position:absolute;
+	}
+
+	.dpad-centre {
+		width:33%;
+		top:33%;
+		left:33%;
+		display:none;
+	}
+
+	.dpad-left {
+		height:33%;
+		top:33%;
+		left:0;
+		width:45%;
+		background-image:url(../img/dpad-left.png);
+		background-size:cover;
+		background-position:right center;
+	}
+
+	.dpad-right {
+		height:33%;
+		top:33%;
+		left:55%;
+		width:45%;
+		background-image:url(../img/dpad-right.png);
+		background-size:cover;
+		background-position:left center;
+	}
+
+	.dpad-up {
+		width:33%;
+		left:33%;
+		top:0;
+		height:45%;
+		background-image:url(../img/dpad-up.png);
+		background-size:cover;
+		background-position:bottom center;
+	}
+
+	.dpad-down {
+		width:33%;
+		left:33%;
+		top:55%;
+		height:45%;
+		background-image:url(../img/dpad-down.png);
+		background-size:cover;
+		background-position:top center;
+	}
+
+}
