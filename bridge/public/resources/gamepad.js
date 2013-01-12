@@ -3,11 +3,11 @@ $(function(){
     a: document.getElementById("xBoxAButton"),
     b: document.getElementById("xBoxBButton"),
     x: document.getElementById("xBoxXButton"),
-    y: document.getElementById("xBoxYButton")
-    // xBoxDpadUp = document.getElementById("xBoxDpadUp"),
-    // xBoxDpadDown = document.getElementById("xBoxDpadDown"),
-    // xBoxDpadLeft = document.getElementById("xBoxDpadLeft"),
-    // xBoxDpadRight = document.getElementById("xBoxDpadRight")
+    y: document.getElementById("xBoxYButton"),
+    xBoxDpadUp: document.getElementById("xBoxDpadUp"),
+    xBoxDpadDown: document.getElementById("xBoxDpadDown"),
+    xBoxDpadLeft: document.getElementById("xBoxDpadLeft"),
+    xBoxDpadRight: document.getElementById("xBoxDpadRight")
   }
 
    // Controller change stuff
@@ -23,7 +23,7 @@ $(function(){
 
   // Generic controller update check
   function updateController() {
-
+    // console.log(controller && controller.state && controller.state.x);
    // Clear button pressed styles
     var buttonsDom = document.getElementsByClassName("button");
     for (var j = 0; j < buttonsDom.length; j++) {
@@ -51,7 +51,10 @@ $(function(){
          // console.log(buttonDivs[buttonName]);
          buttonDivs[buttonName].classList.add('pressed');
        } else if (buttonType == 'dpad') {
-     
+         if (button.up) xBoxDpadUp.classList.add('pressed');
+         if (button.down) xBoxDpadDown.classList.add('pressed');
+         if (button.left) xBoxDpadLeft.classList.add('pressed');
+         if (button.right) xBoxDpadRight.classList.add('pressed');
        } else if (buttonType == 'joy') {
          xBoxLeftStick.getElementsByTagName("span")[0].style.left = (button.x*20).toString()+"px";
          xBoxLeftStick.getElementsByTagName("span")[0].style.top = (button.y*20).toString()+"px";
