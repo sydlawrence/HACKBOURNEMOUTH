@@ -3,22 +3,23 @@ var GamepadJoyJoy = (function() {
   function GamepadJoyJoy() {
     this.gamepads = {};
 
-    this.socket = io.connect('http://localhost');
+    this.socket = io.connect();
 
-    socket.on('controllerConnected', function (id) {
+    var that = this;
+    this.socket.on('controllerConnected', function (id) {
       console.log(id);
-      var gamepad = new Gamepad(id, this);
+      var gamepad = new Gamepad(id, that);
       this.trigger('controllerConnected', gamepad);
     });
 
-    socket.on('controllerDisconnected', function (id) {
+    this.socket.on('controllerDisconnected', function (id) {
       console.log(id);
       var gamepad = gamepads[id];
       delete gamepads[id];
       this.trigger('controllerDisconnected', gamepad);
     });
     
-    socket.on('buttonChange', function (data) {
+    this.socket.on('buttonChange', function (data) {
       var gamepad = gamepads[data.id];
       gamepad.buttonChange(data.buttonID, data.state);
     });
@@ -26,10 +27,10 @@ var GamepadJoyJoy = (function() {
   }
   
   GamepadJoyJoy.prototype.simulateActivity = function() {
-    var gamepad1 = new Gamepad();
+    var gamepad1 = new Gamepad(1, this);
     this.trigger('controllerConnected', gamepad1);
     
-    var gamepad2 = new Gamepad();
+    var gamepad2 = new Gamepad(2, this);
     this.trigger('controllerConnected', gamepad2);
 
     var that = this;
