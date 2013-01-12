@@ -5,6 +5,11 @@ var Gamepad = {
 	sendState: function(button, state) {
 		console.log("button change: "+button);
 		console.log(state);
+		socket.emit({
+			type: "controlPress",
+			button:button,
+			state:state
+		});
 	},
 	setLayout: function(layout) {
 		if (!layout) return;

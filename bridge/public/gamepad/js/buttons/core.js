@@ -15,7 +15,6 @@ CoreButton.prototype.setup = function(options) {
 	this.settings = _.clone(this.defaults);
 	_.extend(this.settings, options);
 	this.settings.handlers.self = this.settings;
-	console.log(this.settings);
 	_.extend(this, Backbone.Events);
 };
 
