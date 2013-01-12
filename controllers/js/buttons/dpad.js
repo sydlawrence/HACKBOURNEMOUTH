@@ -50,6 +50,8 @@ var Dpad = function(options) {
 			})(buttons[dir]);
 		}
 
+		this.position(container);
+
 		return container;
 	};
 

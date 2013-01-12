@@ -21,6 +21,9 @@ CoreButton.prototype.setup = function(options) {
 
 CoreButton.prototype.defaults = {
 	size: 100,
+	color: "#00f",
+	x:0,
+	y:0,
 	handlers: {
 		touchstart: function(id) {
 			console.log(this);
@@ -37,8 +40,15 @@ CoreButton.prototype._toString = function() {
 	return this.build();
 };
 
+CoreButton.prototype.position = function(element) {
+	element.style.top = this.settings.y + "px";
+	element.style.left = this.settings.x + "px";
+	element.style.position = "absolute";
+}
+
 CoreButton.prototype.build = function() {
 		var button = document.createElement("button");
+		button.style.backgroundColor = this.settings.color;
 		button.className = "button";
 		button.style.width = this.settings.size+"px";
 		button.style.height = this.settings.size+"px";
@@ -50,6 +60,7 @@ CoreButton.prototype.build = function() {
 		button.addEventListener("touchend",function() {
 			that.settings.handlers.touchend(that.settings.id);
 		}, false);
+		this.position(button);
 
 		return button;
 };

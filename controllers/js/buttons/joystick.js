@@ -6,6 +6,10 @@ var Joystick = function(options) {
 
 	this.defaults = {
 		size: 100,
+		colors: {
+			base: "#ccc",
+			knob: "#1a1a1a"
+		},
 		handlers: {
 			move: function(id, axis) {
 				Gamepad.sendState(id, axis);
@@ -29,10 +33,15 @@ var Joystick = function(options) {
 		container.className = "joystick";
 		container.style.width = this.settings.size+"px";
 		container.style.height = this.settings.size+"px";
-
+		container.style.backgroundColor = this.settings.colors.base;
 
 		var button = document.createElement("div");
 		button.className = "joystick-knob";
+
+		button.style.backgroundColor = this.settings.colors.knob;
+
+		this.position(container);
+
 
 		(function() {
 			var startPos = {x:0,y:0};

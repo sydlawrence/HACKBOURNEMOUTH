@@ -70,75 +70,75 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 1, ../sass/buttons/_standard.scss */
 button {
   border: none;
-  background: #f00;
-}
-/* line 5, ../sass/buttons/_standard.scss */
-button:active {
-  background: #0f0;
+  background-color: transparent;
 }
 
-/* line 10, ../sass/buttons/_standard.scss */
+/* line 9, ../sass/buttons/_standard.scss */
 .button {
   width: 50px;
   height: 50px;
+  background-image: url(../img/button-up-overlay.png);
+  background-size: cover;
   border-radius: 50px;
 }
 
-/* line 1, ../sass/buttons/_dpad.scss */
-button {
-  border: none;
-  background: #f00;
-}
-/* line 5, ../sass/buttons/_dpad.scss */
-button:active {
-  background: #0f0;
-}
-
-/* line 11, ../sass/buttons/_dpad.scss */
+/* line 3, ../sass/buttons/_dpad.scss */
 .dpad {
   width: 100px;
   height: 100px;
   position: relative;
 }
-/* line 17, ../sass/buttons/_dpad.scss */
+/* line 9, ../sass/buttons/_dpad.scss */
 .dpad button {
   display: block;
   position: absolute;
 }
-/* line 23, ../sass/buttons/_dpad.scss */
+/* line 15, ../sass/buttons/_dpad.scss */
 .dpad .dpad-centre {
   width: 33%;
-  height: 33%;
   top: 33%;
   left: 33%;
+  display: none;
 }
-/* line 30, ../sass/buttons/_dpad.scss */
+/* line 22, ../sass/buttons/_dpad.scss */
 .dpad .dpad-left {
   height: 33%;
   top: 33%;
   left: 0;
-  width: 33%;
+  width: 45%;
+  background-image: url(../img/dpad-left.png);
+  background-size: cover;
+  background-position: right center;
 }
-/* line 39, ../sass/buttons/_dpad.scss */
+/* line 32, ../sass/buttons/_dpad.scss */
 .dpad .dpad-right {
   height: 33%;
   top: 33%;
-  left: 66%;
-  width: 33%;
+  left: 55%;
+  width: 45%;
+  background-image: url(../img/dpad-right.png);
+  background-size: cover;
+  background-position: left center;
 }
-/* line 46, ../sass/buttons/_dpad.scss */
+/* line 42, ../sass/buttons/_dpad.scss */
 .dpad .dpad-up {
   width: 33%;
   left: 33%;
   top: 0;
-  height: 33%;
+  height: 45%;
+  background-image: url(../img/dpad-up.png);
+  background-size: cover;
+  background-position: bottom center;
 }
-/* line 53, ../sass/buttons/_dpad.scss */
+/* line 52, ../sass/buttons/_dpad.scss */
 .dpad .dpad-down {
   width: 33%;
   left: 33%;
-  top: 66%;
-  height: 33%;
+  top: 55%;
+  height: 45%;
+  background-image: url(../img/dpad-down.png);
+  background-size: cover;
+  background-position: top center;
 }
 
 /* line 1, ../sass/buttons/_joystick.scss */
@@ -148,10 +148,14 @@ button:active {
   height: 100px;
   background: #f00;
   border-radius: 100%;
+  background-image: url(../img/joystick-arrows.png);
+  background-size: cover;
 }
-/* line 10, ../sass/buttons/_joystick.scss */
+/* line 12, ../sass/buttons/_joystick.scss */
 .joystick .joystick-knob {
   border-radius: 100%;
+  background-image: url(../img/joystick.png);
+  background-size: cover;
   width: 50%;
   height: 50%;
   position: absolute;
@@ -159,5 +163,13 @@ button:active {
   left: 50%;
   margin-top: -25%;
   margin-left: -25%;
-  background: #0f0;
+}
+
+/* line 11, ../sass/screen.scss */
+#controls {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
