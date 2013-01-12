@@ -116,6 +116,7 @@ var Game = function(id, io) {
 			});
 
 			socket.on('message', function(data) {
+				data.id = socket.id;
 				controllers.emit('message', data);
 			});
 		});
@@ -128,15 +129,16 @@ var Game = function(id, io) {
 
 			// Controller has connected
 			util.log('Controller connected from IP ' + controllerIp);
-			viewers.emit('message', {type: 'controllerConnected'});
+			viewers.emit('message', {type: 'controllerConnected', id: socket.id});
 
 			socket.on('disconnect', function (socket) {
 				// Controller has disconnected
 				util.log('Controller disconnected');
-				viewers.emit('message', {type: 'controllerDisconnected'});
+				viewers.emit('message', {type: 'controllerDisconnected', id: socket.id});
 			});
 
 			socket.on('message', function(data) {
+				data.id = socket.id;
 				viewers.emit('message', data);
 			});
 		});
