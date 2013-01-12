@@ -35,24 +35,54 @@
     
 
     	<script>
-    		var button = new CoreButton({
-    			size: 100,
-    			id: "main_button"
-    		});
-    		document.getElementById('controls').appendChild(button.build());
 
+			var layout = {
+				a: {
+					type: 'button',
+					size: 50,
+					image: 'http://mygame.com/buttons/0.png',
+					x: 10,
+					y: 100
+				},
+				b: {
+					type: 'button',
+					size: 50,
+					image: 'http://mygame.com/buttons/0.png',
+					x: 10,
+					y: 200
+				},
+				x: {
+					type: 'button',
+					size: 50,
+					image: 'http://mygame.com/buttons/0.png',
+					x: 10,
+					y: 300
+				},
+				y: {
+					type: 'button',
+					size: 50,
+					image: 'http://mygame.com/buttons/0.png',
+					x: 10,
+					y: 400
+				},
+				pad: {
+					type: 'dpad',
+					size: 50,
+					image: 'http://mygame.com/buttons/1.png',
+					x: 100,
+					y: 10
+				},
+				joy: {
+					type: 'joy',
+					size: 50,
+					image: 'http://mygame.com/buttons/1.png',
+					x: 100,
+					y: 10
+				}
+			};
 
-    		var dpad = new Dpad({
-    			size:200,
-    			id: "pad"
-    		});
-    		document.getElementById('controls').appendChild(dpad.build());
-
-    		var joystick = new Joystick({
-    			size:200,
-    			id: "joy"
-    		});
-    		document.getElementById('controls').appendChild(joystick.build());
+			Gamepad.setLayout(layout);
+    		
 
 
     	</script>

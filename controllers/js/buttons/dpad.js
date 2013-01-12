@@ -14,8 +14,8 @@ var Dpad = function(options) {
 	this.defaults = {
 		size: 100,
 		handlers: {
-			stateChange: function() {
-				Gamepad.sendState(this.self.id, state);
+			stateChange: function(id) {
+				Gamepad.sendState(id, state);
 			}
 		}
 	};
@@ -38,12 +38,12 @@ var Dpad = function(options) {
 
 				obj.addEventListener("touchstart",function() {
 					state[dir] = 1;
-					that.settings.handlers.stateChange();
+					that.settings.handlers.stateChange(that.settings.id);
 				}, false);
 
 				obj.addEventListener("touchend",function() {
 					state[dir] = 0;
-					that.settings.handlers.stateChange();
+					that.settings.handlers.stateChange(that.settings.id);
 				}, false);
 
 				container.appendChild(obj);

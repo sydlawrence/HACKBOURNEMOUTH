@@ -12,21 +12,22 @@ CoreButton.prototype.setup = function(options) {
 	if (options === undefined) {
 		options = {};
 	}
-	this.settings = this.defaults;
+	this.settings = _.clone(this.defaults);
 	_.extend(this.settings, options);
 	this.settings.handlers.self = this.settings;
+	console.log(this.settings);
 	_.extend(this, Backbone.Events);
-}
+};
 
 CoreButton.prototype.defaults = {
 	size: 100,
 	handlers: {
-		touchstart: function() {
+		touchstart: function(id) {
 			console.log(this);
-			Gamepad.sendState(this.self.id, true);
+			Gamepad.sendState(id, true);
 		},
-		touchend: function() {
-			Gamepad.sendState(this.self.id, false);
+		touchend: function(id) {
+			Gamepad.sendState(id, false);
 		}
 	},
 	id: ""
@@ -43,11 +44,11 @@ CoreButton.prototype.build = function() {
 		button.style.height = this.settings.size+"px";
 		var that = this;
 		button.addEventListener("touchstart",function() {
-			that.settings.handlers.touchstart();
+			that.settings.handlers.touchstart(that.settings.id);
 		}, false);
 
 		button.addEventListener("touchend",function() {
-			that.settings.handlers.touchend();
+			that.settings.handlers.touchend(that.settings.id);
 		}, false);
 
 		return button;

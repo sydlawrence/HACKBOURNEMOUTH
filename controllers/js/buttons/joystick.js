@@ -7,8 +7,8 @@ var Joystick = function(options) {
 	this.defaults = {
 		size: 100,
 		handlers: {
-			move: function(axis) {
-				Gamepad.sendState(this.self.id, axis);
+			move: function(id, axis) {
+				Gamepad.sendState(id, axis);
 			}
 		}
 	};
@@ -73,7 +73,7 @@ var Joystick = function(options) {
 					x:(left / (buttonSize/2)) - 2,
 					y:(top / (buttonSize/2)) - 2
 				};
-				that.settings.handlers.move(axis);
+				that.settings.handlers.move(that.settings.id, axis);
 
 				button.style.top = top + "px";
 				button.style.left = left + "px";
@@ -84,7 +84,7 @@ var Joystick = function(options) {
 				button.style.top = buttonSize + "px";
 				button.style.left = buttonSize + "px";
 
-				that.settings.handlers.move({x:0, y:0});
+				that.settings.handlers.move(that.settings.id, {x:0, y:0});
 
 			}, false);
 		})();
