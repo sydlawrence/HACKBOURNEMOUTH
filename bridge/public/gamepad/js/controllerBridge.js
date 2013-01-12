@@ -3,7 +3,7 @@ var host = '';
 if (window.location.host == 'productionhost.com') {
 	host = 'http://productionhost.com';
 } else {
-	host = 'http://localhost:5000';
+	host = 'http://10.0.2.101:5000';
 }
 
 var socket;
@@ -25,6 +25,8 @@ $.getJSON(host+'/games', function(data) {
 	// 	console.log(key, val);
 	// });
 
+	
+
 	// For now, assume there is only one game
 	var game = games[0];
 
@@ -32,6 +34,20 @@ $.getJSON(host+'/games', function(data) {
 	console.log('Connecting to controller channel /' + game.id + '-controller');
 	socket = io.connect(host + '/' + game.id + '-controller');
 	initSocketEvents(socket);
+
+
+	socket.on("message", function (data) {
+		alert("received message");
+		if (Gamepad.id === undefined) {
+			Gamepad.id = data.id;
+		} else if (Gamepad.id !== data.id) {
+			return;
+		}
+		if (data.type === "layout")
+			Gamepad.setLayout(data.layout);
+	});
+
+
 }).error(function(xhr, status, error) {
 	console.log('An AJAX error occured: ' + status + ', of type: ' + error);
 	console.log('Error text: ' + xhr.responseText);

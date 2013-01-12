@@ -62,6 +62,7 @@ var initExpress = function() {
 
 	app.get('/games', function(req, res) {
 		var controllerIp = req.ip;
+		util.log("controller attempting to connect: "+controllerIp);
 
 		if (req.headers['x-forwarded-for']) {
 			util.log('Forwarded IP: ' + req.headers['x-forwarded-for']);
