@@ -34,7 +34,13 @@
 
     	<script>
 
+
 			socket.on("message", function (data) {
+				if (Gamepad.id === undefined) {
+					Gamepad.id = data.id;
+				} else if (Gamepad.id !== data.id) {
+					return;
+				}
 				if (data.type === "layout")
 					Gamepad.setLayout(data.layout);
 			});
