@@ -1,0 +1,60 @@
+button {
+	border:none;
+	background:#f00;
+
+	&:active {
+	background:#0f0;
+	}
+}
+
+
+.dpad {
+
+	width:100px;
+	height:100px;	
+	position:relative;
+
+	button {
+		display:block;
+
+		position:absolute;
+	}
+
+	.dpad-centre {
+		width:33%;
+		height:33%;
+		top:33%;
+		left:33%;
+	}
+
+	.dpad-left {
+		height:33%;
+		top:33%;
+		left:0;
+		width:33%;
+	}
+
+
+
+	.dpad-right {
+		height:33%;
+		top:33%;
+		left:66%;
+		width:33%;
+	}
+
+	.dpad-up {
+		width:33%;
+		left:33%;
+		top:0;
+		height:33%;
+	}
+
+	.dpad-down {
+		width:33%;
+		left:33%;
+		top:66%;
+		height:33%;
+	}
+
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='css/screen.css?v=1' media='all' rel='stylesheet'/>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+       
+
+        <script src="js/vendor/underscore.min.js"></script>
+        <script src="js/vendor/backbone.min.js"></script>
+        <script src="js/buttons/core.js"></script>
+        <script src="js/buttons/dpad.js"></script>
+        <script src="js/buttons/joystick.js"></script>
+
+
+    </head>
+
+    <!--
+    	buttons
+    	joystick
+    	dpad
+    	pill button
+    -->
+
+    <body>
+    	<div id="controls">
+
+    	</div>
+
+  
+
+    
+
+    	<script>
+    		var button = new CoreButton({
+    			size: 100
+    		});
+    		document.getElementById('controls').appendChild(button.build());
+
+
+    		var dpad = new Dpad({
+    			size:200
+    		});
+    		document.getElementById('controls').appendChild(dpad.build());
+
+    		var joystick = new Joystick({
+    			size:200
+    		});
+    		document.getElementById('controls').appendChild(joystick.build());
+
+
+    	</script>
+
+    </body>
+
+</html>

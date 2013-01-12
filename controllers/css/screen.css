@@ -1,0 +1,163 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../../../.rvm/gems/ruby-1.9.3-p125/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/buttons/_standard.scss */
+button {
+  border: none;
+  background: #f00;
+}
+/* line 5, ../sass/buttons/_standard.scss */
+button:active {
+  background: #0f0;
+}
+
+/* line 10, ../sass/buttons/_standard.scss */
+.button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+/* line 1, ../sass/buttons/_dpad.scss */
+button {
+  border: none;
+  background: #f00;
+}
+/* line 5, ../sass/buttons/_dpad.scss */
+button:active {
+  background: #0f0;
+}
+
+/* line 11, ../sass/buttons/_dpad.scss */
+.dpad {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+/* line 17, ../sass/buttons/_dpad.scss */
+.dpad button {
+  display: block;
+  position: absolute;
+}
+/* line 23, ../sass/buttons/_dpad.scss */
+.dpad .dpad-centre {
+  width: 33%;
+  height: 33%;
+  top: 33%;
+  left: 33%;
+}
+/* line 30, ../sass/buttons/_dpad.scss */
+.dpad .dpad-left {
+  height: 33%;
+  top: 33%;
+  left: 0;
+  width: 33%;
+}
+/* line 39, ../sass/buttons/_dpad.scss */
+.dpad .dpad-right {
+  height: 33%;
+  top: 33%;
+  left: 66%;
+  width: 33%;
+}
+/* line 46, ../sass/buttons/_dpad.scss */
+.dpad .dpad-up {
+  width: 33%;
+  left: 33%;
+  top: 0;
+  height: 33%;
+}
+/* line 53, ../sass/buttons/_dpad.scss */
+.dpad .dpad-down {
+  width: 33%;
+  left: 33%;
+  top: 66%;
+  height: 33%;
+}
+
+/* line 1, ../sass/buttons/_joystick.scss */
+.joystick {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: #f00;
+  border-radius: 100%;
+}
+/* line 10, ../sass/buttons/_joystick.scss */
+.joystick .joystick-knob {
+  border-radius: 100%;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25%;
+  margin-left: -25%;
+  background: #0f0;
+}
