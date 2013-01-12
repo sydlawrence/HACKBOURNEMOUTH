@@ -6,10 +6,13 @@
 	background:#f00;
 
 	border-radius:100%;
+	background-image:url(../img/joystick-arrows.png);
+	background-size:cover;
 
 	.joystick-knob {
 		border-radius:100%;
-
+		background-image:url(../img/joystick.png);
+		background-size:cover;
 		width:50%;
 		height:50%;
 		position:absolute;
@@ -17,6 +20,5 @@
 		left:50%;
 		margin-top:-25%;
 		margin-left:-25%;
-		background:#0f0;
 	}
 }

@@ -6,9 +6,13 @@ var Joystick = function(options) {
 
 	this.defaults = {
 		size: 100,
+		colors: {
+			base: "#ccc",
+			knob: "#1a1a1a"
+		},
 		handlers: {
-			move: function(axis) {
-				Gamepad.sendState(this.self.id, axis);
+			move: function(id, axis) {
+				Gamepad.sendState(id, axis);
 			}
 		}
 	};
@@ -29,10 +33,15 @@ var Joystick = function(options) {
 		container.className = "joystick";
 		container.style.width = this.settings.size+"px";
 		container.style.height = this.settings.size+"px";
-
+		container.style.backgroundColor = this.settings.colors.base;
 
 		var button = document.createElement("div");
 		button.className = "joystick-knob";
+
+		button.style.backgroundColor = this.settings.colors.knob;
+
+		this.position(container);
+
 
 		(function() {
 			var startPos = {x:0,y:0};
@@ -73,7 +82,7 @@ var Joystick = function(options) {
 					x:(left / (buttonSize/2)) - 2,
 					y:(top / (buttonSize/2)) - 2
 				};
-				that.settings.handlers.move(axis);
+				that.settings.handlers.move(that.settings.id, axis);
 
 				button.style.top = top + "px";
 				button.style.left = left + "px";
@@ -84,7 +93,7 @@ var Joystick = function(options) {
 				button.style.top = buttonSize + "px";
 				button.style.left = buttonSize + "px";
 
-				that.settings.handlers.move({x:0, y:0});
+				that.settings.handlers.move(that.settings.id, {x:0, y:0});
 
 			}, false);
 		})();

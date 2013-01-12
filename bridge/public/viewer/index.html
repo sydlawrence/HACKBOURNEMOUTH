@@ -1,0 +1,44 @@
+<!doctype html5>
+<html>
+<head>
+	<title>Game Viewer</title>
+</head>
+<body>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script>
+		var host = '';
+
+		if (window.location.host == 'productionhost.com') {
+			host = 'http://productionhost.com';
+		} else {
+			host = 'http://localhost';
+		}
+
+		console.log('Requesting controller bridge');
+		$.get('/handshake', function(data) {
+			console.log('Connecting to viewer channel /' + data + '-viewer');
+			var socket = io.connect(host + '/' + data + '-viewer');
+			initSocketEvents(socket);
+		}).error(function(xhr, status, error) {
+			console.log('An AJAX error occured: ' + status + ', of type: ' + error);
+			console.log('Error text: ' + xhr.responseText);
+		});
+
+		function initSocketEvents(socket) {
+			socket.on('connect', function() {
+				console.log('Connected to viewer channel ' + socket.name);
+			});
+
+			socket.on('controller connected', function(data) {
+				console.log('Controller connected');
+			});
+
+			socket.on('controller disconnected', function(data) {
+				console.log('Controller disconnected');
+			});
+		}
+	</script>
+</body>
+</html>
