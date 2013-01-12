@@ -114,6 +114,10 @@ var Game = function(id, io) {
 				// Viewer has disconnected
 				util.log('Viewer disconnected');
 			});
+
+			socket.on('message', function(data) {
+				controllers.emit('message', data);
+			});
 		});
 
 		util.log('Setting up controller connection on channel /' + this.id);
@@ -124,12 +128,16 @@ var Game = function(id, io) {
 
 			// Controller has connected
 			util.log('Controller connected from IP ' + controllerIp);
-			viewers.emit('controller connected', '');
+			viewers.emit('message', {type: 'controllerConnected'});
 
 			socket.on('disconnect', function (socket) {
 				// Controller has disconnected
 				util.log('Controller disconnected');
-				viewers.emit('controller disconnected', '');
+				viewers.emit('message', {type: 'controllerDisconnected'});
+			});
+
+			socket.on('message', function(data) {
+				viewers.emit('message', data);
 			});
 		});
 	};
