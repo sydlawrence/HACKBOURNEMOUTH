@@ -1,5 +1,6 @@
 
 var Gamepad = {
+	id: undefined,
 	controlsEl: "controls",
 	controls: [],
 	sendState: function(button, state) {
