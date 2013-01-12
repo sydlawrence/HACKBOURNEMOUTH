@@ -8,7 +8,7 @@
         <script src="js/vendor/underscore.min.js"></script>
         <script src="js/vendor/backbone.min.js"></script>
 
-        <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
 
         <script src="js/controllerBridge.js"></script>
 
@@ -35,16 +35,7 @@
     	<script>
 
 
-			socket.on("message", function (data) {
-				if (Gamepad.id === undefined) {
-					Gamepad.id = data.id;
-				} else if (Gamepad.id !== data.id) {
-					return;
-				}
-				if (data.type === "layout")
-					Gamepad.setLayout(data.layout);
-			});
-
+			
     	
 
     	</script>
