@@ -57,7 +57,7 @@ var GamepadJoyJoy = (function() {
       var button = this.buttons[buttonID]
   
       this.trigger(buttonID, state);
-      parent.trigger('buttonChange', {button: buttonID, state: state});
+      this.parent.trigger('buttonChange', {button: buttonID, state: state});
 
       this.state[buttonID] = state;
     }
