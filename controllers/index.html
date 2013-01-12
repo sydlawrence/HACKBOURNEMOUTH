@@ -7,6 +7,10 @@
 
         <script src="js/vendor/underscore.min.js"></script>
         <script src="js/vendor/backbone.min.js"></script>
+
+
+        <script src="js/gamepad.js"></script>
+
         <script src="js/buttons/core.js"></script>
         <script src="js/buttons/dpad.js"></script>
         <script src="js/buttons/joystick.js"></script>
@@ -32,18 +36,21 @@
 
     	<script>
     		var button = new CoreButton({
-    			size: 100
+    			size: 100,
+    			id: "main_button"
     		});
     		document.getElementById('controls').appendChild(button.build());
 
 
     		var dpad = new Dpad({
-    			size:200
+    			size:200,
+    			id: "pad"
     		});
     		document.getElementById('controls').appendChild(dpad.build());
 
     		var joystick = new Joystick({
-    			size:200
+    			size:200,
+    			id: "joy"
     		});
     		document.getElementById('controls').appendChild(joystick.build());
 

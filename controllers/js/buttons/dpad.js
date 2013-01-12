@@ -2,21 +2,20 @@
 
 var Dpad = function(options) {
 
+	var state = {
+		up:0,
+		right:0,
+		down:0,
+		left:0,
+		centre:0
+	};
+
 	_.extend(this, new CoreButton(options));
 	this.defaults = {
 		size: 100,
 		handlers: {
-			up: function() {
-				alert("top");
-			},
-			right: function() {
-				alert("right");
-			},
-			down: function() {
-				alert("bottom");
-			},
-			left: function() {
-				alert("left");
+			stateChange: function() {
+				Gamepad.sendState(this.self.id, state);
 			}
 		}
 	};
@@ -36,9 +35,17 @@ var Dpad = function(options) {
 			(function(dir){
 				var obj = document.createElement("button");
 				obj.className = "dpad-"+dir;
-				obj.onclick = function() {
-					that.settings.handlers[dir]();
-				};
+
+				obj.addEventListener("touchstart",function() {
+					state[dir] = 1;
+					that.settings.handlers.stateChange();
+				}, false);
+
+				obj.addEventListener("touchend",function() {
+					state[dir] = 0;
+					that.settings.handlers.stateChange();
+				}, false);
+
 				container.appendChild(obj);
 			})(buttons[dir]);
 		}

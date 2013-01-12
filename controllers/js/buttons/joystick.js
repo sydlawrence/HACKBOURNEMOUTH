@@ -7,11 +7,8 @@ var Joystick = function(options) {
 	this.defaults = {
 		size: 100,
 		handlers: {
-			move: function() {
-				console.log("move");
-			},
-			click: function() {
-				alert("click");
+			move: function(axis) {
+				Gamepad.sendState(this.self.id, axis);
 			}
 		}
 	};
@@ -36,12 +33,6 @@ var Joystick = function(options) {
 
 		var button = document.createElement("div");
 		button.className = "joystick-knob";
-		button.onclick = function() {
-			that.settings.handlers.click();
-		};
-
-		console.log("hello");
-
 
 		(function() {
 			var startPos = {x:0,y:0};
@@ -50,8 +41,8 @@ var Joystick = function(options) {
 			var buttonSize;
 			button.addEventListener("touchstart", function(e) {
 				buttonSize = button.clientWidth;
-				startPos.x = e.screenX;
-				startPos.y = e.screenY;
+				startPos.x = e.touches[0].screenX;
+				startPos.y = e.touches[0].screenY;
 				moving = true;
 			}, false);
 
@@ -61,22 +52,28 @@ var Joystick = function(options) {
 					return;
 				}
 				var difPos = {
-					x: e.screenX - startPos.x,
-					y: e.screenY - startPos.y
+					x: e.touches[0].screenX - startPos.x,
+					y: e.touches[0].screenY - startPos.y
 				};
-
-				console.log(difPos);
-				console.log(buttonSize);
-				console.log(parseInt(buttonSize / 2, 10) + parseInt(difPos.y, 10) + "px");
 
 				var top = (parseInt(buttonSize / 2, 10) + difPos.y);
 				var left = (parseInt(buttonSize / 2, 10) + difPos.x);
+
 				if (top < 0) top = 0;
 				if (left < 0) left = 0;
 
 				if (top > buttonSize) top = buttonSize;
 				if (left > buttonSize) left = buttonSize;
 
+				top += buttonSize/2;
+				left += buttonSize/2;
+
+
+				var axis = {
+					x:(left / (buttonSize/2)) - 2,
+					y:(top / (buttonSize/2)) - 2
+				};
+				that.settings.handlers.move(axis);
 
 				button.style.top = top + "px";
 				button.style.left = left + "px";
@@ -84,8 +81,11 @@ var Joystick = function(options) {
 
 			button.addEventListener("touchend", function(e) {
 				moving = false;
-				button.style.top = parseInt(buttonSize / 2, 10) + "px";
-				button.style.left = parseInt(buttonSize / 2, 10) + "px";
+				button.style.top = buttonSize + "px";
+				button.style.left = buttonSize + "px";
+
+				that.settings.handlers.move({x:0, y:0});
+
 			}, false);
 		})();
 
