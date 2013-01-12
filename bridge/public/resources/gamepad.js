@@ -42,6 +42,8 @@ $(function(){
      for (var buttonName in controller.state) {
        var button = controller.state[buttonName];
        var buttonType = layout[buttonName].type;
+       
+       if (!button) return
   
        if (buttonType == 'button') {
          // console.log(buttonDivs);
