@@ -28,7 +28,7 @@ var GamepadJoyJoy = (function() {
     this.socket.on("message", function (data) {   
       if (data.type === "controllerConnected") {
         var gamepad = new Gamepad(data.id, that);
-        gamepads[data.id] = gamepad;
+        that.gamepads[data.id] = gamepad;
         that.trigger('controllerConnected', gamepad);
       }
       if (data.type === "controllerDisconnected") {
@@ -66,7 +66,7 @@ var GamepadJoyJoy = (function() {
       this.buttons = buttons;
       this.state = {};
       
-      this.parent.socket.emit({type: 'message', layout: layout});
+      this.parent.socket.emit('message', {type: 'layout', layout: layout});
 
       var defaults = {
         button: false,

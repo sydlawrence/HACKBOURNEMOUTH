@@ -38,8 +38,6 @@ function updateController() {
  if (controller) {
 
    // Buttons
-   console.log('controller is');
-   console.log(controller);
    for (var buttonName in controller.state) {
      var button = controller.state[buttonName];
      var buttonType = layout[buttonName].type;
