@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>gamepadjoyjoy test</title>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="underscore-min.js"></script>
+  <script src="backbone-min.js"></script>
+  <script src="client.js"></script>
+
+  <script type="text/javascript">
+   var gamepadClient = new GamepadJoyJoy();
+   
+   var layout = [{
+      type: 'button'
+      size: 50,
+      image: 'http://mygame.com/buttons/0.png',
+      x: 10,
+      y: 100
+    },{
+      type: 'dpad'
+      size: 50,
+      image: 'http://mygame.com/buttons/1.png',
+      x: 100,
+      y: 10
+    },{
+      type: 'joy'
+      size: 50,
+      image: 'http://mygame.com/buttons/1.png',
+      x: 100,
+      y: 10
+    }];
+   
+   gamepadClient.bind('controllerConnected', function(gamepad){
+       console.log('new controller: '+gamepad);
+       gamepad.setLayout(layout)
+   });
+   
+   gamepadClient.bind('controllerDisconnected', function(gamepad){
+       console.log('controller disconnect: '+gamepad);
+   });
+   
+   gamepadClient.simulateActivity();
+  
+  </script>
+  <style type="text/css"></style>
+</head>
+<body>
+  <h1>gamepadjoyjoy test</h1>
+  
+</body>
+</html>
