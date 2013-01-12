@@ -12,6 +12,8 @@ hr {
 	margin: 20px 0;
 }
 
+
+
 .controller {
 	background-color: #ddd;
 }
@@ -115,6 +117,7 @@ hr {
 				height: 32px;
 				margin: -16px 0 0 -16px;
 				width: 32px;
+				position:absolute;
 			}
 
 			#xboxController #dpad .button {

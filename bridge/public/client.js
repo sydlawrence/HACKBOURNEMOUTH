@@ -36,6 +36,7 @@ var GamepadJoyJoy = (function() {
          delete that.gamepads[data.id];
          that.trigger('controllerDisconnected', gamepad);
       }
+      console.log(data);
       if (data.type === "controlPress") {
           var gamepad = that.gamepads[data.id];
           gamepad.buttonChange(data.button, data.state);

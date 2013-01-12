@@ -51,6 +51,7 @@ $(function(){
          // console.log(buttonDivs[buttonName]);
          buttonDivs[buttonName].classList.add('pressed');
        } else if (buttonType == 'dpad') {
+         console.log('is dpad');
          if (button.up) xBoxDpadUp.classList.add('pressed');
          if (button.down) xBoxDpadDown.classList.add('pressed');
          if (button.left) xBoxDpadLeft.classList.add('pressed');
