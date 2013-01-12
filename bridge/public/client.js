@@ -56,7 +56,7 @@ var GamepadJoyJoy = (function() {
     Gamepad.prototype.buttonChange = function(buttonID, state) {      
       var button = this.buttons[buttonID]
   
-      gamepad.trigger(data.buttonID, state);
+      this.trigger(data.buttonID, state);
       parent.trigger('buttonChange', {button: buttonID, state: state});
 
       this.state[buttonID] = state;
