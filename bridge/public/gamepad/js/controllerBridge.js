@@ -1,7 +1,7 @@
 var host = '';
 
-if (window.location.host == 'productionhost.com') {
-	host = 'http://productionhost.com';
+if (window.location.host == 'dev.wemakeawesomesh.it:5000') {
+	host = 'http://dev.wemakeawesomesh.it:5000';
 } else {
 	host = 'http://10.0.2.101:5000';
 }
